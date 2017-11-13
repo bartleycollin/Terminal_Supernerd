@@ -1,5 +1,3 @@
-/*
-
 // Simulates typing or something
 // Made by: Ian Ryan
 
@@ -23,4 +21,3 @@ void typing(string str)
 		Sleep(randomNum);
 	}
 	cout << endl;
-}
