@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TestClass.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+  typing.cpp
+c:\users\cbartley\documents\github\terminal_supernerd\terminal_game\terminal_game\typing.cpp(17): warning C4018: '<': signed/unsigned mismatch
+  TestClass.cpp
+c:\users\cbartley\documents\github\terminal_supernerd\terminal_game\terminal_game\testclass.cpp(7): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  Terminal_Game.cpp
+c:\users\cbartley\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(11): error C3861: 'system': identifier not found
+  Generating Code...
