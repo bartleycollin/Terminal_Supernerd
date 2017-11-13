@@ -157,6 +157,7 @@
     </ClCompile>
     <ClCompile Include="Terminal_Game.cpp" />
     <ClCompile Include="TestClass.cpp" />
+    <ClCompile Include="typing.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
