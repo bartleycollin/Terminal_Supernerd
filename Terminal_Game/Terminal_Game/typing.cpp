@@ -1,3 +1,5 @@
+/*
+
 // Simulates typing or something
 // Made by: Ian Ryan
 
