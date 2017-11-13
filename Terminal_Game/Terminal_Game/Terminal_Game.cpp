@@ -2,10 +2,16 @@
 //
 
 #include "stdafx.h"
+#include "iostream"
+#include "time.h"
+#include "windows.h"
+
+using namespace std;
 
 
 int main()
 {
+	system("pause");
     return 0;
 }
 
