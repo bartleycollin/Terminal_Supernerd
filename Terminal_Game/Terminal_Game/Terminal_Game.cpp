@@ -9,6 +9,10 @@
 
 using namespace std;
 
+void pushX(int num) {
+	for (int i = 0;i<num;i++)
+		cout << " ";
+}
 
 void type(string str) {
 	int randomNum;
@@ -24,6 +28,14 @@ void type(string str) {
 int main()
 {
 	type("Whoa!");
+
+	for (int j = 0;j<50;j++) {
+		system("CLS");
+		pushX(j);
+		cout << "Hello";
+		Sleep(20);
+	}
+
 	system("pause");
     return 0;
 }
