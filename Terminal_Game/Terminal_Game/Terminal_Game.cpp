@@ -3,20 +3,17 @@
 
 #include "stdafx.h"
 #include "iostream"
+#include "iomanip"
 #include "string"
 #include "time.h"
 #include "windows.h"
 
 using namespace std;
 
-//============================================================================   pushX()
-
 void pushX(int num) {
 	for (int i = 0;i<num;i++)
 		cout << " ";
 }
-
-//============================================================================   type()
 
 void type(string str) {
 	int randomNum;
@@ -28,8 +25,6 @@ void type(string str) {
 	}
 	cout << endl;
 }
-
-//============================================================================   main()
 
 int main()
 {
@@ -58,6 +53,8 @@ int main()
     |__|    |_______|| _| `.____|__|  |__| |__| |__| \__| /__/     \__\ |_______|*/
 		Sleep(10);
 	}
+
+	cout << setw(100) << endl << "=========================================================================================" << endl;
 
 	system("pause");
     return 0;
