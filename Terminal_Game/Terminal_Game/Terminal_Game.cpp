@@ -10,16 +10,18 @@
 
 using namespace std;
 
-//=============================================================================   pushX()
+//==============================================================================   pushX()
 
-void pushX(int num) {
+void pushX(int num)
+{
 	for (int i = 0;i<num;i++)
 		cout << " ";
 }
 
-//==============================================================================   type()
+//==============================================================================   type()    //Ian
 
-void type(string str) {
+void type(string str)
+{
 	int randomNum;
 	for (int i = 0; i < str.length(); i++)
 	{
@@ -29,6 +31,38 @@ void type(string str) {
 	}
 	cout << endl;
 }
+
+//==============================================================================   wire()    //Ian
+
+bool wire()
+{
+	string choice;
+	Sleep(50);
+
+	cout << "\n\n\n*You notice the lights in the room begin to flicker, and soon realize the artificial gravity is beginning to fail as well.*\n\n";
+	cout << "Choose a message to send below.\n";
+	cout << "1 - 'What's going  on! I'm beginning to float and the lights are flickering!'\n";
+	cout << "2 - 'I think the power in here is beginning to fail! What should I do?'\n";
+	cout << "3 - 'Well, everything seems fine up here.'\n";
+	cin >> choice;
+	
+	if (choice == "1")
+	{
+		type("What's going  on! I'm beginning to float and the lights are flickering!");
+	}
+
+	if (choice == "2")
+	{
+		type("I think the power in here is beginning to fail! What should I do?");
+	}
+
+	if (choice == "3")
+	{
+		type("Well, everything seems fine up here.");
+	}
+	return 0;
+}
+
 
 //===============================================================================   main()
 
@@ -64,6 +98,8 @@ int main()
 	{
 		cout << "=";
 	}
+
+	wire();
 
 	system("pause");
     return 0;
