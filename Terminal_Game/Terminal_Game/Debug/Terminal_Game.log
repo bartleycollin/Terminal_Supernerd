@@ -1,4 +1,5 @@
 ﻿  Terminal_Game.cpp
-c:\users\i.ryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(26): warning C4018: '<': signed/unsigned mismatch
-  Terminal_Game.vcxproj -> C:\Users\i.ryan\Documents\GitHub\Terminal_Supernerd\Terminal_Game\Debug\Terminal_Game.exe
-  Terminal_Game.vcxproj -> C:\Users\i.ryan\Documents\GitHub\Terminal_Supernerd\Terminal_Game\Debug\Terminal_Game.pdb (Partial PDB)
+c:\users\cbartley\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(28): warning C4018: '<': signed/unsigned mismatch
+c:\users\cbartley\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(43): warning C4018: '<': signed/unsigned mismatch
+  Terminal_Game.vcxproj -> C:\Users\cbartley\Documents\GitHub\Terminal_Supernerd\Terminal_Game\Debug\Terminal_Game.exe
+  Terminal_Game.vcxproj -> C:\Users\cbartley\Documents\GitHub\Terminal_Supernerd\Terminal_Game\Debug\Terminal_Game.pdb (Full PDB)

@@ -10,7 +10,9 @@
 
 using namespace std;
 
-//==============================================================================   pushX()
+bool wire();
+
+//==============================================================================   pushX() //Collin from Stack Overflow
 
 void pushX(int num)
 {
@@ -30,6 +32,37 @@ void type(string str)
 		Sleep(randomNum);
 	}
 	cout << endl;
+}
+
+//==============================================================================   typeMoore()    //Ian and Collin
+
+void typeMoore(string str)
+{
+	int randomNum;
+	str = ("Cpt. Moore: " + str);
+	for (int i = 0; i < str.length(); i++)
+	{
+		randomNum = (rand() % 51) + 15;
+		cout << str[i];
+		Sleep(randomNum);
+	}
+	cout << endl;
+}
+
+void introduction() {
+	string choice;
+	Sleep(50);
+
+	cout << "\n\n\n*WELCOME TO TERMINAL*\n\n";
+	cout << "Are you ready to play?.\n";
+	cout << "1 - 'Let's go!'\n";
+	cout << "2 - 'Quit Game.'\n";
+	cin >> choice;
+
+	if (choice == "1")
+	{
+		wire();
+	}
 }
 
 //==============================================================================   wire()    //Ian
@@ -64,12 +97,14 @@ bool wire()
 }
 
 
+
 //===============================================================================   main()
 
 int main()
 {
 	type("Whoa!");
 
+	//Collin
 	for (int j = 0;j<75;j++) {
 		system("CLS");
 		pushX(j);
@@ -99,7 +134,7 @@ int main()
 		cout << "=";
 	}
 
-	wire();
+	introduction();
 
 	system("pause");
     return 0;
