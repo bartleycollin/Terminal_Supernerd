@@ -33,7 +33,7 @@ void type(string str)
 }
 
 //==============================================================================   wire()    //Ian
-
+//stuff
 bool wire()
 {
 	string choice;
