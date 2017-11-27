@@ -87,6 +87,7 @@ bool wire()
 			cout << "Cpt. Moore: Listen closely. Can you hear the air vents or any noises from the ship at all?\n";
 			Sleep(1000);
 			cout << "\n*You listen and hear no noise from the air vents, and, after quickly scanning the room, you notice you neither hear nor see the electronics beeps from various panels.*";
+			choice = "0";
 			while (choice != "1" && choice != "2")
 			{
 				Sleep(100);
@@ -100,7 +101,7 @@ bool wire()
 					cout << "\nCpt. Moore: Whoa, that must mean the power is going out! Head to the generator room and try to find the problem.";
 					progress = true;
 				}
-				else if (choice == "1")
+				else if (choice == "2")
 				{
 					type("It's too quiet in here. Wayt too quiet");
 					cout << "Cpt. Moore: That's what I was afraid of. The power must be going out. Head to the generator room and see if you can fix the problem.";
@@ -119,6 +120,7 @@ bool wire()
 			cout << "\nCpt. Moore: Are you sure. Can you hear the air vents or any noises from the ship at all?";
 			Sleep(100);
 			cout << "\n*You listen and hear no noise from the air vents, and, after quickly scanning the room, you notice you neither hear nor see the electronics beeps from various panels.*";
+			choice = "0";
 			while (choice != "1" && choice != "2")
 			{
 				Sleep(10);
@@ -126,6 +128,7 @@ bool wire()
 				cout << "1 - 'I don't hear anything besides my breathing'\n";
 				cout << "2 - 'It's too quiet in here. Wayt too quiet'\n";
 				cin >> choice;
+
 				if (choice == "1")
 				{
 					cout << "\nCpt. Moore: That confirms it. Head to the generator room and try to find the source of the problem.";
@@ -147,15 +150,26 @@ bool wire()
 		{
 			type("Well, everything seems fine up here.");
 			cout << "Cpt. Moore: Are you sure? Are you being sarcastic and the ship's actually exploding? What's going on?\n";
-			cout << "Choose a message to send below.\n";
-			cout << "1 - 'No I'm completely serious. Everythings tooootally fiiine. No sarcasm at all.'\n";
-			cout << "2 - 'What gives you that idea? My sarcastic text?";
-			cout << "3 - 'I'm being dead honest. I'll tell you if I need anything'\n";
-
+			choice = "0";
+			while (choice != "1" && choice != "2" && choice != "3")
+			{
+				cout << "Choose a message to send below.\n";
+				cout << "1 - 'No I'm completely serious. Everythings tooootally fiiine. No sarcasm at all.'\n";
+				cout << "2 - 'What gives you that idea? My sarcastic text?";
+				cout << "3 - 'I'm being dead honest. I'll tell you if I need anything'\n";
+				cin >> choice;
+			}
+			if (choice == "1")
+		}
+		else
+		{
+			error();
 		}
 	}
 	return 0;
 }
+
+
 
 //==============================================================================   freeze()    //Collin
 //This is the scenario called 'Freeze'. Made by Collin. 
