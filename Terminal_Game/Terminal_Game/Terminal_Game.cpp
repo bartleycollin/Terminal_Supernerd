@@ -44,7 +44,7 @@ void type(string str)
 	Sleep(1000);
 }
 
-//====================================================================================================================================================================   typeMoore()    //Ian and Collin
+//=================================================================================   typeMoore()    //Ian and Collin
 
 void typeMoore(string str)
 {
@@ -59,20 +59,9 @@ void typeMoore(string str)
 	cout << endl;
 }
 
+//=================================================================================   introduction()    //Collin
+
 void introduction() {
-	string choice;
-	Sleep(50);
-
-	cout << "\n\n\n*WELCOME TO TERMINAL*\n\n";
-	cout << "Are you ready to play?.\n";
-	cout << "1 - 'Let's go!'\n";
-	cout << "2 - 'Quit Game.'\n";
-	cin >> choice;
-
-	if (choice == "1")
-	{
-		wire();
-	}
 }
 
 //===================================================================================================================================================================================   wire()    //Ian
@@ -168,7 +157,48 @@ bool wire()
 	return 0;
 }
 
+//==============================================================================   freeze()    //Collin
+//This is the scenario called 'Freeze'. Made by Collin. 
 
+bool freeze() {
+	string choice;
+	Sleep(50);
+
+	cout << "\n\n\n*The heat systems are offline. Ice crystals slowly begin to form on the walls. Your breath creates fog as you exhale. Things are about get to cold.*\n\n";
+	cout << "Choose a message to send below.\n";
+	cout << "1 - 'Captain, I think the heat is offline. I need help quickly.'\n";
+	cout << "2 - 'I'm going to run down and check on the heat systems.'\n";
+	cin >> choice;
+
+	if (choice == "1")
+	{
+		type("Captain, I think the heat is offline. I need help quickly.");
+		typeMoore("It looks like you're right. I need you to run down to where the systems are and check a few things. Are you ready for your instructions?");
+		cout << "Choose a message to send below.\n";
+		while (choice != "1") {
+			cout << "1 - 'Yes, go ahead.'\n";
+			cin >> choice;
+			if (choice == "1")
+			{
+				//continue story
+			}
+		}
+	}
+
+	if (choice == "2")
+	{
+		type("I'm going to run down and check on the heat systems.");
+		typeMoore("It seems like you know what you're doing. Do you need anything before you go?.");
+
+		cout << "Choose a message to send below.\n";
+		while (choice != "1" && choice != "2") {
+			cout << "1 - 'If you could give me some instructions that would help.'\n";
+			cout << "2 - 'I'm fine. Be back shortly.'\n";
+			cin >> choice;
+		}
+	}
+	return 0;
+}
 
 //========================================================================================================================================================================   main()
 
@@ -206,7 +236,24 @@ int main()
 		cout << "=";
 	}
 
-	introduction();
+	string choice;
+	Sleep(50);
+
+	//=================================================================================   introduction   //Collin
+
+	cout << "\n\n\n*WELCOME TO TERMINAL*\n\n";
+	cout << "You are alone on a spaceship. A dusty old terminal is your only lifeline. Communicate with Cpt. Moore, and make your choices wisely.\n";
+	while (choice != "1" && choice != "2") {
+		cout << "Are you ready to play?.\n";
+		cout << "1 - 'Let's go!'\n";
+		cout << "2 - 'Quit Game.'\n";
+		cin >> choice;
+
+		if (choice == "1")
+		{
+			freeze();
+		}
+	}
 
 	system("pause");
     return 0;
