@@ -1,0 +1,33 @@
+#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+	string scenarioname;
+	string filename;
+	string scenariodesc;
+	string command;
+
+	cout << "What is the name of your scenario: ";
+	cin >> scenarioname;
+
+	filename = (scenarioname + ".txt");
+
+	cout << "What is the descrition of your scenario: ";
+	cin >> scenariodesc;
+
+	cout << "Type /help for a list of commands";
+
+	ofstream file;
+	file.open(filename);
+
+	file << "bool " << scenarioname << "(){";
+	while (command != "/end") {
+		
+	}
+	file << "}";
+	file.close();
+	return 0;
+}
