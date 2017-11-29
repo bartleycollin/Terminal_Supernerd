@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <string>
 using namespace std;
@@ -9,6 +10,9 @@ int main() {
 	string filename;
 	string scenariodesc;
 	string command;
+	string placeholder;
+	int indent = 4;
+	int responses;
 
 	cout << "What is the name of your scenario: ";
 	cin >> scenarioname;
@@ -16,17 +20,58 @@ int main() {
 	filename = (scenarioname + ".txt");
 
 	cout << "What is the descrition of your scenario: ";
-	cin >> scenariodesc;
+	cin.ignore();
+	getline(cin, scenariodesc);
 
 	cout << "Type /help for a list of commands";
 
 	ofstream file;
 	file.open(filename);
 
-	file << "bool " << scenarioname << "(){";
+	file << "bool " << scenarioname << "(){" << endl;
+	file << "cout << endl << \"*" << scenariodesc << "*\" << endl;" << endl;
+
+
+	cout << endl << endl << endl;
+
 	while (command != "/end") {
-		
+		cout << "Enter a command: ";
+		cin >> command;
+
+		if (command == "/help") {
+			cout << "Commands: /help, /end, /moore, /back, /responses" << endl << endl;
+		}
+
+		else if (command == "/moore") {
+			cout << "Add a message from Cpt. Moore: ";
+			cin.ignore();
+			getline(cin, placeholder);
+			file << "typeMoore(\"" << placeholder << "\");" << endl;
+			placeholder = "";
+		}
+
+		//This is super not working. Fix it!
+		else if (command == "/responses") {
+			cout << "How many response options: ";
+			cin >> responses;
+			for (int i = 0; i < responses; i++) {
+				cout << "Enter response " << (i + 1) << ": ";
+				cin.ignore();
+				getline(cin, placeholder);
+				file << "cout << \"" << (i + 1) << " - '" << placeholder << "'\" << endl;" << endl;
+			}
+			file << "type(\"" << placeholder << "\");" << endl;
+			getline(cin, placeholder);
+			file << "type(\"" << placeholder << "\");" << endl;
+			placeholder = "";
+			responses = 0;
+		}
+
+		else {
+			cout << "Invalid Command. Type /help for valid commands." << endl << endl;
+		}
 	}
+
 	file << "}";
 	file.close();
 	return 0;
