@@ -27,7 +27,40 @@ void pushX(int num)
 		cout << " ";
 }
 
-//===============================================================================================================================================================   type() //Ian
+//===============================================================================================================================================================   type()  //Ian
+
+void type(string str)
+{
+	int randomNum;
+	int c = 0;
+	bool newl = false;
+	Sleep(500);
+	for (int i = 0; i < str.length(); i++)
+	{
+		randomNum = (rand() % 51) + 15;
+		c++;
+		if (newl && str[i] == ' ')
+		{
+			cout << "\n";
+			newl = false;
+			c = 0;
+		}
+		else if (c >= 150 && !newl)
+		{
+			newl = true;
+			cout << str[i];
+		}
+		else
+		{
+			cout << str[i];
+		}
+		Sleep(randomNum);
+	}
+	cout << endl;
+	Sleep(1000);
+}
+
+//===============================================================================================================================================================   typeEvent() //Ian
 
 
 void typeEvent(string str)
@@ -355,9 +388,8 @@ int main()
 	Sleep(50);
 
 	//=================================================================================   introduction   //Collin
-
-	cout << "\n\n\n*WELCOME TO TERMINAL*\n\n";
-	cout << "You are alone on a spaceship. A dusty old terminal is your only lifeline. Communicate with Cpt. Moore, and make your choices wisely.\n";
+	type("\n\n\n*WELCOME TO TERMINAL*\n\n");
+	type("You are alone on a spaceship. A dusty old terminal is your only lifeline. Communicate with Cpt. Moore, and make your choices wisely.");
 	while (choice != "1" && choice != "2") {
 		cout << "Are you ready to play?.\n";
 		cout << "1 - 'Let's go!'\n";
