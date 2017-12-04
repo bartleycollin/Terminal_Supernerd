@@ -7,15 +7,20 @@
 #include "string"
 #include "time.h"
 #include "windows.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace std;
 
 bool wire();
 bool spacevac();
+
 //==============================================================================   error()    //Ian
 
 void error()
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 12);
 	cout << "Invalid input. Please input the number of the corrosponding choice";
 }
 
@@ -31,6 +36,8 @@ void pushX(int num)
 
 void type(string str)
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 10);
 	int randomNum;
 	int c = 0;
 	bool newl = false;
@@ -65,6 +72,8 @@ void type(string str)
 
 void typeEvent(string str)
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 14);
 	int c = 0;
 	bool newl = false;
 	str = ("\n\n*" + str + "*");
@@ -95,6 +104,8 @@ void typeEvent(string str)
 
 void typeUser(string str)
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 10);
 	int randomNum;
 	int c = 0;
 	bool newl = false;
@@ -129,6 +140,8 @@ void typeUser(string str)
 
 void typeMoore(string str)
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 02);
 	int c = 0;
 	bool newl = false;
 	str = ("Cpt. Moore: " + str);
@@ -498,6 +511,10 @@ bool freeze() {
 
 int main()
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 10);
+	//system("COLOR 0A");
+
 	system("mode 650"); // found on stack overflow, makes console windowed fullscreen, Zach
 	ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
 	type("Whoa!");
