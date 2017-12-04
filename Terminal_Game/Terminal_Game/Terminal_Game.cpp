@@ -24,6 +24,150 @@ void error()
 	cout << "Invalid input. Please input the number of the corrosponding choice";
 }
 
+//===============================================================================================================================================================   pushX() //Collin from Stack Overflow
+
+void pushX(int num)
+{
+	for (int i = 0;i<num;i++)
+		cout << " ";
+}
+
+//===============================================================================================================================================================   type()  //Ian
+
+void type(string str)
+{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 10);
+	int randomNum;
+	int c = 0;
+	bool newl = false;
+	Sleep(500);
+	for (int i = 0; i < str.length(); i++)
+	{
+		randomNum = (rand() % 86) + 15;
+		c++;
+		if (newl && str[i] == ' ')
+		{
+			cout << "\n";
+			newl = false;
+			c = 0;
+		}
+		else if (c >= 150 && !newl)
+		{
+			newl = true;
+			cout << str[i];
+		}
+		else
+		{
+			cout << str[i];
+		}
+		Sleep(randomNum);
+	}
+	cout << endl;
+	Sleep(1000);
+}
+
+//===============================================================================================================================================================   typeEvent() //Ian
+
+
+void typeEvent(string str)
+{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 14);
+	int c = 0;
+	bool newl = false;
+	str = ("\n\n*" + str + "*");
+	for (int i = 0; i < str.length(); i++)
+	{
+		c++;
+		Sleep(10);
+		if (newl && str[i] == ' ')
+		{
+			cout << "\n";
+			newl = false;
+			c = 0;
+		}
+		else if (c >= 150 && !newl)
+		{
+			newl = true;
+			cout << str[i];
+		}
+		else
+		{
+			cout << str[i];
+		}
+	}
+	cout << endl;
+}
+
+
+//===============================================================================================================================================================   typeUser()    //Ian
+
+void typeUser(string str)
+{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 10);
+	int randomNum;
+	int c = 0;
+	bool newl = false;
+	str = ("User 162: " + str);
+	Sleep(500);
+	for (int i = 0; i < str.length(); i++)
+	{
+		randomNum = (rand() % 86) + 15;
+		c++;
+		if (newl && str[i] == ' ')
+		{
+			cout << "\n";
+			newl = false;
+			c = 0;
+		}
+		else if (c >= 150 && !newl)
+		{
+			newl = true;
+			cout << str[i];
+		}
+		else
+		{
+			cout << str[i];
+		}
+		Sleep(randomNum);
+	}
+	cout << endl;
+}
+
+//=================================================================================   typeMoore()    //Ian and Collin
+
+void typeMoore(string str)
+{
+	Sleep(1000);
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 02);
+	int c = 0;
+	bool newl = false;
+	str = ("Cpt. Moore: " + str);
+	for (int i = 0; i < str.length(); i++)
+	{
+		c++;
+		if (newl && str[i] == ' ')
+		{
+			cout << "\n";
+			newl = false;
+			c = 0;
+		}
+		else if (c >= 150 && !newl)
+		{
+			newl = true;
+			cout << str[i];
+		}
+		else
+		{
+			cout << str[i];
+		}
+	}
+	cout << endl;
+}
+
 void randFunction() // zach, function picks random number 1 - 5 and each number is assigned to a function or scenario 
 {
 	int num;
@@ -66,148 +210,6 @@ void death() // zach, function makes it easier for developers to say the player 
 			break;
 		}
 	}
-}
-//===============================================================================================================================================================   pushX() //Collin from Stack Overflow
-
-void pushX(int num)
-{
-	for (int i = 0;i<num;i++)
-		cout << " ";
-}
-
-//===============================================================================================================================================================   type()  //Ian
-
-void type(string str)
-{
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, 10);
-	int randomNum;
-	int c = 0;
-	bool newl = false;
-	Sleep(500);
-	for (int i = 0; i < str.length(); i++)
-	{
-		randomNum = (rand() % 51) + 15;
-		c++;
-		if (newl && str[i] == ' ')
-		{
-			cout << "\n";
-			newl = false;
-			c = 0;
-		}
-		else if (c >= 150 && !newl)
-		{
-			newl = true;
-			cout << str[i];
-		}
-		else
-		{
-			cout << str[i];
-		}
-		Sleep(randomNum);
-	}
-	cout << endl;
-	Sleep(1000);
-}
-
-//===============================================================================================================================================================   typeEvent() //Ian
-
-
-void typeEvent(string str)
-{
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, 14);
-	int c = 0;
-	bool newl = false;
-	str = ("\n\n*" + str + "*");
-	for (int i = 0; i < str.length(); i++)
-	{
-		c++;
-		if (newl && str[i] == ' ')
-		{
-			cout << "\n";
-			newl = false;
-			c = 0;
-		}
-		else if (c >= 150 && !newl)
-		{
-			newl = true;
-			cout << str[i];
-		}
-		else
-		{
-			cout << str[i];
-		}
-	}
-	cout << endl;
-}
-
-
-//===============================================================================================================================================================   typeUser()    //Ian
-
-void typeUser(string str)
-{
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, 10);
-	int randomNum;
-	int c = 0;
-	bool newl = false;
-	str = ("User 162:" + str);
-	Sleep(500);
-	for (int i = 0; i < str.length(); i++)
-	{
-		randomNum = (rand() % 51) + 15;
-		c++;
-		if (newl && str[i] == ' ')
-		{
-			cout << "\n";
-			newl = false;
-			c = 0;
-		}
-		else if (c >= 150 && !newl)
-		{
-			newl = true;
-			cout << str[i];
-		}
-		else
-		{
-			cout << str[i];
-		}
-		Sleep(randomNum);
-	}
-	cout << endl;
-	Sleep(1000);
-}
-
-//=================================================================================   typeMoore()    //Ian and Collin
-
-void typeMoore(string str)
-{
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, 02);
-	int c = 0;
-	bool newl = false;
-	str = ("Cpt. Moore: " + str);
-	for (int i = 0; i < str.length(); i++)
-	{
-		c++;
-		if (newl && str[i] == ' ')
-		{
-			cout << "\n";
-			newl = false;
-			c = 0;
-		}
-		else if (c >= 150 && !newl)
-		{
-			newl = true;
-			cout << str[i];
-		}
-		else
-		{
-			cout << str[i];
-		}
-	}
-	cout << endl;
 }
 
 //=================================================================================   introduction()    //Collin
@@ -310,7 +312,7 @@ bool wire()
 			{
 				cout << "Choose a message to send below.\n";
 				cout << "1 - 'No I'm completely serious. Everythings tooootally fiiine. No sarcasm at all.'\n";
-				cout << "2 - 'What gives you that idea? My sarcastic text?";
+				cout << "2 - 'What gives you that idea? My sarcastic text?\n";
 				cout << "3 - 'I'm being dead honest. I'll tell you if I need anything'\n";
 				cin >> choice;
 
@@ -356,6 +358,7 @@ bool wire()
 	}
 	return failure;
 }
+
 
 // space vacuum event //Zach
 bool spacevac()
@@ -587,7 +590,11 @@ int main()
 
 	system("mode 650"); // found on stack overflow, makes console windowed fullscreen, Zach
 	ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
-	type("Whoa!");
+	type("type Test");
+	typeEvent("typeEvent test");
+	typeMoore("typeMoore test");
+	typeUser("typeUser test");
+	Sleep(2000);
 
 	//Collin
 	for (int j = 0;j<75;j++) {
