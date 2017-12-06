@@ -210,8 +210,6 @@ void death() // zach, function makes it easier for developers to say the player 
 bool wire()
 {
 	string choice = "This is some nice placeholder text amirite";
-	const int row = 9;
-	const int column = 10;
 	bool progress = false;
 	bool failure = false;
 	bool rackSafe = false;
@@ -540,7 +538,7 @@ bool wire()
 
 		while (!progress)
 		{
-			cout("This is what you see before you.");
+			cout << "This is what you see before you.";
 			Sleep(250);
 			for (int i = 0; i < row; i++)
 			{

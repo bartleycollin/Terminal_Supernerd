@@ -1,9 +1,11 @@
 ﻿  Terminal_Game.cpp
-c:\users\zhodges\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(46): warning C4018: '<': signed/unsigned mismatch
-c:\users\zhodges\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(81): warning C4018: '<': signed/unsigned mismatch
-c:\users\zhodges\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(115): warning C4018: '<': signed/unsigned mismatch
-c:\users\zhodges\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(149): warning C4018: '<': signed/unsigned mismatch
-c:\users\zhodges\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(174): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\zhodges\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(363): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Terminal_Game.vcxproj -> C:\Users\zhodges\Documents\GitHub\Terminal_Supernerd\Terminal_Game\Debug\Terminal_Game.exe
-  Terminal_Game.vcxproj -> C:\Users\zhodges\Documents\GitHub\Terminal_Supernerd\Terminal_Game\Debug\Terminal_Game.pdb (Full PDB)
+c:\users\iryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(46): warning C4018: '<': signed/unsigned mismatch
+c:\users\iryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(81): warning C4018: '<': signed/unsigned mismatch
+c:\users\iryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(115): warning C4018: '<': signed/unsigned mismatch
+c:\users\iryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(149): warning C4018: '<': signed/unsigned mismatch
+c:\users\iryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(174): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\iryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(584): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+  LINK : C:\Users\iryan\Documents\GitHub\Terminal_Supernerd\Terminal_Game\Debug\Terminal_Game.exe not found or not built by the last incremental link; performing full link
+  Terminal_Game.vcxproj -> C:\Users\iryan\Documents\GitHub\Terminal_Supernerd\Terminal_Game\Debug\Terminal_Game.exe
+  Terminal_Game.vcxproj -> C:\Users\iryan\Documents\GitHub\Terminal_Supernerd\Terminal_Game\Debug\Terminal_Game.pdb (Full PDB)
