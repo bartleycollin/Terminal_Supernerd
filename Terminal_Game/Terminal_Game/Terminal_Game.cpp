@@ -358,6 +358,37 @@ bool wire()
 }
 
 
+void patch() // zach, function for mini game inside of spacevac scenario
+{
+	int number;
+	int ans;
+	type("YOU HAVE BEGUN TO PATCH THE CRACK");
+	type("You will need to type each number as they correspond on screen");
+	Sleep(300);
+	type("3");
+	type("2");
+	type("1");
+	type("=======");
+	srand(time(NULL));
+	for (int i = 0; i < 3; i++)
+	{
+		int r = 3;
+		number = rand() % 50 + 1;
+		cout << number << endl;
+		cin >> ans;
+		if (ans == number)
+		{
+			cout << "Good job! " << r << " more to go!" << endl;
+			r--;
+		}
+		if (ans != number)
+		{
+			cout << "You didn't correctly patch it." << endl;
+			//call death function
+		}
+	}
+}
+
 // space vacuum event //Zach
 bool spacevac()
 {
@@ -367,12 +398,13 @@ bool spacevac()
 	string choice3;
 	Sleep(50);
 
+	cout << endl;
 	typeEvent("A red warning light alarms you that a crack has formed from the pressure outside, slowly depleting your oxygen supply.");
 	Sleep(1000);
 	typeEvent("What will you send Commander?");
-	cout << "1 - 'The pressure from space cracked the ships hull, I'm losing oxygen!'\n";
-	cout << "2 - 'What is happening? There is a red warning light!'\n";
-	cout << "3 - 'Did you happen to catch the episode of 'Friends' last night?'\n";
+	type("1 - 'The pressure from space cracked the ships hull, I'm losing oxygen!'");
+	type("2 - 'What is happening? There is a red warning light!'");
+	type("3 - 'Did you happen to catch the episode of 'Friends' last night?'\n");
 	cin >> choice;
 
 	if (choice == "1") // choice 1
@@ -386,7 +418,8 @@ bool spacevac()
 		Sleep(250);
 		typeEvent("You run to the storage room and find some scrap metal. It isn't the same metal, but it will have to do.\n");
 		Sleep(250);
-		typeEvent("Once identifying the crack, you seal it with the materials and return to the terminal to update Moore.\n");
+		typeEvent("Once identifying the crack, you begin to seal it.");
+		patch();
 		Sleep(250);
 		typeUser("I patched it, but please, next time i'm in a life or death situation, just help.");
 		typeMoore("Did the torch and scrap metal store have any good sales?\n");
@@ -398,14 +431,14 @@ bool spacevac()
 		typeMoore("Your ship is losing it's oxygen supply, you need to find the crack and patch it!");
 		typeUser("Where can I find such material?");
 		typeMoore("Look in the closet down the hall, I believe we have extras in there!");
-		typeEvent("You run down the hall frantically in search of something that will help.\n");
+		typeEvent("You run down the hall frantically in search of something that will help.");
 		Sleep(250);
-		typeEvent("*While checking the closet, you find a torch, but not any material that is useful.\n");
+		typeEvent("While checking the closet, you find a torch, but not any material that is useful.");
 		Sleep(250);
 		typeEvent("There are two other places to check. The cargo bay or flight deck?");
 		Sleep(100);
-		cout << "1 - Check the cargo bay for extra materials." << endl;
-		cout << "2 - Check the flight deck for anything that could help." << endl;
+		type("1 - Check the cargo bay for extra materials.");
+		type("2 - Check the flight deck for anything that could help.\n");
 		cin >> choice1;
 		if (choice1 == "1")
 		{
@@ -414,7 +447,9 @@ bool spacevac()
 			Sleep(500);
 			typeEvent("You find a piece of scrap metal. It should work!\n");
 			Sleep(100);
-			typeEvent("You find the crack and seal it without losing too much oxygen.\n");
+			typeEvent("You find the crack.");
+			patch();
+			typeEvent("You patched it without losing too much oxygen.");
 		}
 
 		else if (choice1 == "2")
@@ -429,7 +464,9 @@ bool spacevac()
 			Sleep(500);
 			typeEvent("You find a piece of scrap metal. It should work!\n");
 			Sleep(100);
-			typeEvent("You find the crack and seal it without losing too much oxygen.\n");
+			typeEvent("You find the crack.");
+			patch();
+			typeEvent("You patched it without losing too much oxygen.");
 		}
 		else if (choice1 != "1" || choice1 != "2")
 		{
@@ -443,50 +480,54 @@ bool spacevac()
 		typeMoore("I did, Ross was great!");
 		typeMoore("Is everything okay? I just got an alert from your ship./n");
 		Sleep(1000);
-		cout << "1 - 'Everything is good, can you send me a feed of last nights episode on the big screen? I can't wait to watch it.\n";
-		cout << "2 - 'I'll be honest Commander, I just woke up from a nap and don't really know where I am.\n";
-		cout << "3 - 'Now that you say something, there is a bright light that woke me, I thought some jokester pulled the fire alarm.\n";
+		type("1 - 'Everything is good, can you send me a feed of last nights episode on the big screen? I can't wait to watch it.");
+		type("2 - 'I'll be honest Commander, I just woke up from a nap and don't really know where I am.");
+		type("3 - 'Now that you say something, there is a bright light that woke me, I thought some jokester pulled the fire alarm.\n");
 		cin >> choice2;
 
 		if (choice2 == "1")
 		{
-			typeUser("Everything is good, can you send me a feed of last nights episode on the big screen? I can't wait to watch it.\n");
-			typeMoore("...\n");
-			typeMoore("Well okay, if anything does happen, be sure to alert me. I'm sending the feed right now.\n");
+			typeUser("Everything is good, can you send me a feed of last nights episode on the big screen? I can't wait to watch it.");
+			typeMoore("...");
+			typeMoore("Well okay, if anything does happen, be sure to alert me. I'm sending the feed right now.");
 			typeUser("I'll let you know Commander. Thank you.");
-			typeEvent("You die from lack of oxygen, and before the end of the episode, how sad.");
+			typeEvent("You die from lack of oxygen, and before the end of the episode, how sad.\n");
+			//call death
 		}
 
 		else if (choice2 == "2")
 		{
-			typeUser("I'll be honest Commander, I just woke up from a nap and don't really know where I am.\n");
-			typeMoore("I'm getting an alert from your ships IP, is everything okay up there?\n");
-			typeUser("Everything seems to be fine, there is a rave going on though.\n");
-			typeMoore("No, no, no. There's a breach in the hull. You're losing oxygen, you need to act quickly.\n");
-			typeUser("5 more minutes?\n");
-			typeMoore("It's your life.\n");
+			typeUser("I'll be honest Commander, I just woke up from a nap and don't really know where I am.");
+			typeMoore("I'm getting an alert from your ships IP, is everything okay up there?");
+			typeUser("Everything seems to be fine, there is a rave going on though.");
+			typeMoore("No, no, no. There's a breach in the hull. You're losing oxygen, you need to act quickly.");
+			typeUser("5 more minutes?");
+			typeMoore("It's your life.");
 			typeUser("Fine, I'll check the supplies closet.\n");
-			typeEvent("You run to the closet and find the materials and patch the crack.\n");
+			typeEvent("You run to the closet to find the materials.");
 			Sleep(250);
-			typeMoore("The alert has settled, good job.\n");
+			typeEvent("Once at the supply closet you look through until finding what is needed.");
+			typeEvent("You run to the crack and begin to patch it.");
+			patch();
+			typeMoore("The alert has settled, good job.");
 			typeUser("Thanks Commander, see, I got everything undercontrol.\n");
 		}
 
 		else if (choice2 == "3")
 		{
-			typeUser("Now that you say something, there is a bright light that woke me, I thought some jokester pulled the fire alarm.\n");
-			typeMoore("You do understand that you are the only person on the ship, right?\n");
-			typeUser("You never know, these aliens are shifty.\n");
-			typeMoore("You've found extraterrestrial life? We need to report this! Why didn't you tell me this before?\n");
-			typeUser("I've said too much. I must go.\n");
+			typeUser("Now that you say something, there is a bright light that woke me, I thought some jokester pulled the fire alarm.");
+			typeMoore("You do understand that you are the only person on the ship, right?");
+			typeUser("You never know, these aliens are shifty.");
+			typeMoore("You've found extraterrestrial life? We need to report this! Why didn't you tell me this before?");
+			typeUser("I've said too much. I must go.");
 			Sleep(1000);
-			typeMoore("...\n");
+			typeMoore("...");
 			Sleep(1000);
-			typeMoore("What? Come back here, now!\n");
+			typeMoore("What? Come back here, now!");
 			Sleep(300);
-			typeEvent("You left Commander Moore on a questionable note, will you tell him about the aliens?\n");
-			cout << "1 - Yes, I did, we should report it.\n";
-			cout << "2 - I don't know what I'm talking about, space makes you say crazy things.\n";
+			typeEvent("You left Commander Moore on a questionable note, will you tell him about the aliens?");
+			type("1 - Yes, I did, we should report it.");
+			type("2 - I don't know what I'm talking about, space makes you say crazy things.\n");
 			cin >> choice3;
 			if (choice3 == "1")
 			{
@@ -497,6 +538,7 @@ bool spacevac()
 				typeMoore("YOU NEED TO HURRY, YOU ARE LOSING OXYGEN, GO TO TJE CLOSET AND GRAB THE TORCH AND SCRAP METAL");
 				typeEvent("You run to the closet and grab what you need.");
 				typeEvent("You then patch the crack, but you have already lost a substantial amount of oxygen");
+				patch();
 				typeEvent("Chances are you will need to use the emergency oxygen reservoir to stay alive.");
 			}
 
@@ -508,6 +550,7 @@ bool spacevac()
 				typeMoore("Well, alright, but still, you are losing oxygen, you need to act fast.\n");
 				typeMoore("Go to the closet and grab a torch and some scrap metal.\n");
 				typeEvent("You grab the supplies and weld the crack.");
+				patch();
 				typeEvent("But you left Commander feeling uneasy about your alien comment.");
 			}
 
@@ -530,7 +573,6 @@ bool spacevac()
 	}
 	return 0;
 }
-
 
 
 
