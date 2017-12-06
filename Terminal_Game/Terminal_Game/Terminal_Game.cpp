@@ -190,27 +190,17 @@ void randFunction() // zach, function picks random number 1 - 5 and each number 
 }
 void death() // zach, function makes it easier for developers to say the player has died 
 {
-	bool tf = true;
-	int c;
-	while (tf = true)
-	{
-		typeEvent("You have died.");
-		typeEvent("Thank you for playing.");
-		type("Try again?");
-		cout << "1 - Yes, lets go!" << endl;
-		cout << "2 - No, I am done." << endl;
-		cin >> c;
+	string choice;
+	type("You have died...");
+	type("Play again?");
+	type("1 - Yes!");
+	type("2 - Quit.");
+	cin >> choice;
 
-		if (c == 1)
-		{
-
-		}
-
-		if (c == 2)
-		{
-			break;
-		}
+	if (choice == "1") {
+		randFunction();
 	}
+
 }
 
 //=================================================================================   introduction()    //Collin
@@ -760,7 +750,8 @@ int main()
 
 		if (choice == "1")
 		{
-			randFunction();
+			death();
+			//randFunction();
 		}
 		if (choice == "2")
 		{
