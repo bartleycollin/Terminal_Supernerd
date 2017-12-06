@@ -204,16 +204,41 @@ void death() // zach, function makes it easier for developers to say the player 
 
 //=================================================================================   introduction()    //Collin
 
+
 //===================================================================================================================================================================================   wire()    //Ian
 
 bool wire()
 {
 	string choice = "This is some nice placeholder text amirite";
+	const int row = 9;
+	const int column = 10;
 	bool progress = false;
 	bool failure = false;
+	bool rackSafe = false;
+	bool rackOnPanel = true;
+	bool fire = true;
+	bool terminalOn = false;
 	int annoyance = 0;
+	string wireLocationStr = "";
+	int wireLocation = (rand() % 3) + 1;
+	const int row = 5;
+	const int column = 9;
+	string wireNum;
+	string wireLet;
+	string wireArray[row][column] =
+	{
+		{ "1 -> Life Su#####", "   ", "   ", "   ", "   ", "   ", "   ", "   ", "#####ower    <- A" },
+		{ "     ------######", "   ", "   ", "   ", "   ", "   ", "   ", "   ", "#######-----     " },
+		{ "2 ->    AU######r", "   ", "   ", "   ", "   ", "   ", "   ", "   ", "#########ort <- B" },
+		{ "     -----#######", "   ", "   ", "   ", "   ", "   ", "   ", "   ", "########----     " },
+		{ "3 -> Art. #######", "   ", "   ", "   ", "   ", "   ", "   ", "   ", "######avity  <- C" }
+	};
+
+	wireLocationStr += wireLocation;
+
 	Sleep(500);
 
+	// ============================= Part I
 	cout << "\n\n\n*You notice the lights in the room begin to flicker, and soon realize the artificial gravity is beginning to fail as well. \nGood thing the computer has an internal power supply*\n\n";
 	while (!progress && !failure)
 	{
@@ -261,7 +286,7 @@ bool wire()
 			typeUser("I think the power in here is beginning to fail! What should I do?");
 			typeMoore("Are you sure. Can you hear the air vents or any noises from the ship at all?");
 			Sleep(1000);
-			cout << "\n*You listen for a few seconds and hear no noise from the air vents, \nand, after quickly scanning the room, you notice you neither\n hear nor see the electronics beeps from various panels.*";
+			typeEvent("You listen for a few seconds and hear no noise from the air vents, and, after quickly scanning the room, you notice you neither hear nor see the electronics beeps from various panels.");
 			choice = "0";
 			while (choice != "1" && choice != "2")
 			{
@@ -274,13 +299,13 @@ bool wire()
 				if (choice == "1")
 				{
 					typeUser("I don't hear anything besides my breathing");
-					typeMoore("That confirms it. Head to the generator room and try to find the source of the problem.");
+					typeMoore("That confirms it. Head to the generator room and try to find the source of the problem. You'll have to be quick, or else the life support will fail.");
 					progress = true;
 				}
 				else if (choice == "2")
 				{
 					typeUser("It's too quiet in here. Wayt too quiet");
-					typeMoore("That's what I was afraid of. Head to the generator room and see if you can fix the problem.");
+					typeMoore("That's what I was afraid of. Head to the generator room and see if you can fix the problem. You'll have to be quick, or else the life support will fail.");
 					progress = true;
 				}
 				else
@@ -336,16 +361,214 @@ bool wire()
 			failure = true;
 		}
 	}
-
+	// ====================================== Part II
 	if (!failure)
 	{
-		cout << "Cpt. Moore: Don't forget to turn on the computer in when you get to the power room\n so I can help talk you through any problems you come across.\n";
+		typeMoore("Don't forget to turn on the computer in when you get to the generator room so I can help talk you through any problems you come across.");
 		Sleep(2000);
 		system("CLS");
+		typeEvent("You head down to the generator room, and find a concerning scene. On the left side, a metal rack has fallen onto the ships main electrical panel, causing an electrical fire. On the opposite side of the room, you see a terminal similar to the one in the bridge of the ship, with a fire extinguisher next to it.");
+		choice = "0";
+		progress = false;
+		while (progress = false && !failure)
+		{
+			choice = "0";
+			type("Choose an option below:");
+			type("1 - Pull the metal rack off of the panel.");
+			type("2 - Use the terminal.");
+			type("3 - Extinguish the fire.");
+			type("4 - Turn off the generator.");
+			cin >> choice;
+			if (choice == "1" && rackSafe == false)
+			{
+				typeEvent("You touch a metal rack that is currently channelling elctricity. You get shocked, fall unconcious, and eventually die from the power to the life support eventually failing.");
+				failure = true;
+			}
+			else if (choice == "1" && rackSafe == true)
+			{
+				if (fire == true)
+				{
+					typeEvent("You pull the metal rack off of the panel. It's quite hot to the touch, but you manage to avoid the fire.");
+				}
+				if (fire == false)
+				{
+					typeEvent("You pull the metal rack off of the panel. It's still warm, but a comfortable warm.");
+				}
+			}
+			else if (choice == "2")
+			{
+				if (terminalOn == false)
+				{
+					system("CLS");
+					type("ACTIVATING TERMINAL NUMBER [4]. PLEASE STAND BY...");
+					Sleep(1000);
+					type("BOOT UP PROGRAM SUCCESSFUL. ESTABLISHING CONNECTION TO [CAPTAIN MOORE]...");
+					Sleep(750);
+					type("CONNECTION ESTABLISHED.");
+					terminalOn = true;
+				}
+				choice = "0";
+				while (choice != "1" || choice != "2")
+				{
+					type("Choose an option to type below:");
+					type("1 - 'There's a problem. The electrical panel is on fire.'");
+					type("2 - 'There's a problem. A rack fell onto the electrical panel.'");
+					if (choice == "1")
+					{
+						typeUser("There's a problem. The electrical panel is on fire.");
+						typeMoore("Well extinguish it already!");
+					}
+					if (choice == "2")
+					{
+						typeUser("There's a problem. A rack fell onto the electrical panel.");
+						typeMoore("Make sure you shut off the generator before you touch it, otherwise it might shock you!");
+					}
+				}
+			}
+			else if (choice == "3" && fire == false)
+			{
+				typeEvent("Congrats. You wasted time.");
+			}
+			else if (choice == "3" && fire == true)
+			{
+				if (rackSafe == true)
+				{
+					typeEvent("You extinguish the fire.");
+				}
+				else
+				{
+					typeEvent("You extinguish the fire. You do notice, however, that there are still sparks flying from the panel.");
+				}
+				fire = false;
+			}
+			else if (choice == "4" && rackSafe == true)
+			{
+				typeEvent("You turn the generator on and off again. You feel slightly better or something.");
+			}
+			else if (choice == "4" && rackSafe == false)
+			{
+				if (fire == true)
+				{
+					typeEvent("You turn off the generator.");
+				}
+				if (fire == false)
+				{
+					typeEvent("You turn off the generator. You notice the sparks stop flying out from the panel.");
+				}
+			}
+			else
+			{
+				error();
+			}
+			if (rackOnPanel == false && fire == false)
+			{
+				progress = true;
+			}
+		}
+	}
+	// ============================================== Part III
+	if (!failure)
+	{
+		progress = false;
+		typeEvent("You head over to the terminal to find out how you should proceed, since you have almost no knowledge about wiring electrical panels.");
+		if (terminalOn == false)
+		{
+			system("CLS");
+			type("ACTIVATING TERMINAL  NUMBER [4]. PLEASE STAND BY...");
+			Sleep(1000);
+			type("BOOT UP PROGRAM SUCCESSFUL. ESTABLISHING CONNECTION TO [CAPTAIN MOORE]...");
+			Sleep(750);
+			type("CONNECTION ESTABLISHED.");
+			terminalOn = true;
+		}
+		choice = "0";
+		while (choice != "1" || choice != "2")
+		{
+			type("Choose an option to type below:");
+			type("1 - 'Alright, I've put out the fire, turned off the generator, and pulled the rack off of the panel. How should I proceed?'");
+			type("2 - 'I now have access to the electrical panel, which has several wires burnt up. How should I proceed?'");
+			if (choice == "1")
+			{
+				typeUser("Alright, I've put out the fire, turned off the generator, and pulled the rack off of the panel. How should I proceed?");
+			}
+			else if (choice == "2")
+			{
+				typeUser("I now have access to the electrical panel, which has several wires burnt up. How should I proceed?");
+			}
+			else
+			{
+				error();
+			}
+		}
+		typeMoore("Good. I need you to now search the room for spare wiring so you can fix the panel.");
+		choice = "0";
+		while (wireLocation != 0)
+		{
+			cout << "Search a location:\n";
+			cout << "1 - Tool cabinets in the far right corner";
+			cout << "2 - The desk with the terminal on it.";
+			cout << "3 - Wooden supply crates in the far left corner";
+			cin >> choice;
+			if (choice == wireLocationStr)
+			{
+				typeEvent("You found the wires!");
+				wireLocation = 0;
+			}
+			else if (choice == "1")
+			{
+				typeEvent("You did not find the wire in the tool cabinets.");
+			}
+			else if (choice == "2")
+			{
+				typeEvent("You did not find the wire in the desk.");
+			}
+			else if (choice == "3")
+			{
+				typeEvent("You did not find the wire in the wooden crates.");
+			}
+			else
+			{
+				error();
+			}
+		}
+		typeUser("I found the wires. What now?");
+		typeMoore("You'll have to connect each of the ship's systems to their corresponding power supplies. They should be clearly labelled, but I don't really remember where they were located, so you're on your own.");
+
+		// ============================================ Part III + I/2
+
+		typeEvent("You take a look at the panel. After clearing away burnt remnants of unusable wires, which have snapped and bent from the intense heat, you notice that parts of the labels have been burnt off. However, you figure that enough of them are left for you to figure out where the wires go.");
+
+		while (!progress)
+		{
+			cout("This is what you see before you.");
+			Sleep(250);
+			for (int i = 0; i < row; i++)
+			{
+				for (int c = 0; c < column; c++)
+				{
+					cout << wireArray[i][c];
+				}
+				cout << endl;
+			}
+			Sleep(250);
+			wireNum = "0";
+			wireLet = "LUL";
+			while (wireNum != "1" || wireNum != "2" || wireNum != "3")
+			{
+				cout << "What would you like to connect.?";
+				cout << "1 - '1'";
+				cout << "2 - '2'";
+				cout << "3 - '3'";
+				cin >> wireNum;
+				if (wireNum != "1" || wireNum != "2" || wireNum != "3")
+				{
+					error();
+				}
+			}
+		}
 	}
 	return failure;
 }
-
 void patch() // zach, function for mini game inside of spacevac scenario
 {
 	bool good;
