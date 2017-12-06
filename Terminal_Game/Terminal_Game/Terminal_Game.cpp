@@ -9,6 +9,7 @@
 #include "windows.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <cwchar>
 
 using namespace std;
 
@@ -213,9 +214,6 @@ void death() // zach, function makes it easier for developers to say the player 
 }
 
 //=================================================================================   introduction()    //Collin
-
-void introduction() {
-}
 
 //===================================================================================================================================================================================   wire()    //Ian
 
@@ -580,21 +578,100 @@ bool freeze() {
 	return 0;
 }
 
+void introduction() {
+	CONSOLE_FONT_INFOEX cfi;
+	cfi.cbSize = sizeof(cfi);
+	cfi.nFont = 0;
+	cfi.dwFontSize.X = 0;                   // Width of each character in the font
+	cfi.dwFontSize.Y = 26;                  // Height
+	cfi.FontFamily = FF_DONTCARE;
+	cfi.FontWeight = FW_NORMAL;
+	wcscpy_s(cfi.FaceName, L"Consolas"); // Choose your font
+	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	for (int j = 0;j<75;j++) {
+		SetConsoleTextAttribute(hConsole, 14);
+		system("CLS");
+		pushX(j);
+		cout << "[=====>" << endl;
+		pushX(j);
+		cout << "[  (" << endl;
+		pushX(j);
+		cout << " \\__\\,-'//   `--._" << endl;
+		pushX(j);
+		cout << "  [_/~||,-----.\\@_\\\\___" << endl;
+		pushX(j);
+		cout << "  [_) |||()()()   ~[|||>" << endl;
+		pushX(j);
+		cout << "  [_\\_||`-----'   //" << endl;
+		pushX(j);
+		cout << " /  /`-.\\\\___,--'==(-" << endl;
+		pushX(j);
+		cout << "[  (" << endl;
+		pushX(j);
+		cout << "[=====>" << endl;
+		/*
+[=====>
+[  (    _____
+ \__\,-'//   `--._
+  [_/~||,-----.\@_\\___
+  [_) |||()()()   ~[|||>
+  [_\_||`-----'   //
+ /  /`-.\\___,--'==(-
+[  (
+[=====>
+MADE BY Kenneth D Miller*/
+		Sleep(2);
+	}
+
+	
+
+	cout << "Terminal: ";
+	//Sleep(1000);
+	//cfi.dwFontSize.Y = 24;
+	type("You are User 162. You are currently aboard the C++ Enterprise cargo ship.");
+	//Sleep(1000);
+	type("You are the only worker on this ship. Your boss is Captain Moore. He communicates with you daily through various terminals on the ship.");
+	//Sleep(1000);
+	type("While your job is enjoyable enough, you are beginning to notice things can be a little unsettling at times.");
+//	Sleep(1000);
+	type("As things go wrong, it's up to you to make sure you survive.");
+	//Sleep(1000);
+	type("Captain Moore is your benevolent leader, who is a god among men. He is a space mobster who also enjoys teaching on the side.");
+	typeMoore("It's true... I do.");
+	type("Are you up for the challenge?");
+
+	string choice;
+
+	while (choice != "1" && choice != "2") {
+		cout << "1 - 'Let's go!'\n";
+		cout << "2 - 'Quit Game.'\n";
+		cin >> choice;
+		cfi.dwFontSize.Y = 12;
+		
+		if (choice == "1")
+		{
+			randFunction();
+		}
+	}
+}
+
 //========================================================================================================================================================================   main()
 
 int main()
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, 10);
 	//system("COLOR 0A");
 
 	system("mode 650"); // found on stack overflow, makes console windowed fullscreen, Zach
 	ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
-	type("type Test");
-	typeEvent("typeEvent test");
-	typeMoore("typeMoore test");
-	typeUser("typeUser test");
-	Sleep(2000);
+	//type("type Test");
+	//typeEvent("typeEvent test");
+	//typeMoore("typeMoore test");
+	//typeUser("typeUser test");
+//	error();
+//	Sleep(2000);
+	SetConsoleTextAttribute(hConsole, 10);
 
 	//Collin
 	for (int j = 0;j<75;j++) {
@@ -635,12 +712,17 @@ int main()
 	while (choice != "1" && choice != "2") {
 		cout << "Are you ready to play?.\n";
 		cout << "1 - 'Let's go!'\n";
-		cout << "2 - 'Quit Game.'\n";
+		cout << "2 - 'Introduction.'\n";
+		cout << "3 - 'Quit Game.'\n";
 		cin >> choice;
 
 		if (choice == "1")
 		{
 			randFunction();
+		}
+		if (choice == "2")
+		{
+			introduction();
 		}
 	}
 
