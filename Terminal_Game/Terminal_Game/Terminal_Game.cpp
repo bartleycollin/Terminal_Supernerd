@@ -582,14 +582,16 @@ void patch() // zach, function for mini game inside of spacevac scenario
 	type("1");
 	type("=======");
 	srand(time(NULL));
-	for (int i = 3; i > 0; i--)
-	{
 		for (int a = 0; a < 5; a++)
 		{
-			number = rand() % 9 + 1;
-			cout << number << " ";
-			ans += number;
+			int num;
+			number = rand() % 9 + 0;
+			num = number;
+			ans += to_string(num);
 		}
+		type(ans);
+		Sleep(2000);
+		// add functionality of disappearing text
 		cout << endl;
 		cin >> guess;
 		// clear entire screen then redisplay the other text
@@ -601,16 +603,8 @@ void patch() // zach, function for mini game inside of spacevac scenario
 			if (guess != ans)
 			{
 				cout << "You didn't correctly patch it." << endl;
-				break;
 				death();
 			}
-			if (i == 5)
-			{
-				cout << "You failed to patch it in time." << endl;
-				good = false;
-				death();
-			}
-		}
 		}
 	}
 
@@ -1002,7 +996,7 @@ int main()
 
 		if (choice == "1")
 		{
-			patch();
+			randFunction();
 		}
 		if (choice == "2")
 		{
