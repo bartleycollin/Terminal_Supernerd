@@ -589,12 +589,11 @@ void patch() // zach, function for mini game inside of spacevac scenario
 			num = number;
 			ans += to_string(num);
 		}
-		type(ans);
+		cout << ans << flush;
 		Sleep(2000);
-		// add functionality of disappearing text
+		type("\rTime is up.");
 		cout << endl;
 		cin >> guess;
-		// clear entire screen then redisplay the other text
 		{
 			if (guess == ans)
 			{
