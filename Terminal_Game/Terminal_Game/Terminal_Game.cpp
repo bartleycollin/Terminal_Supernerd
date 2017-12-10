@@ -573,16 +573,19 @@ void patch() // zach, function for mini game inside of spacevac scenario
 	int number;
 	string ans;
 	string guess;
-	type("YOU HAVE BEGUN TO PATCH THE CRACK");
+	type("!!!YOU ARE PATCHING THE CRACK!!!");
 	type("You will need to type each number as they correspond on screen.");
-	type("There will be 5 numbers, remember them and then type them.");
+	type("There will be 3 sets of 5 numbers, remember each and then type them.");
 	Sleep(300);
 	type("3");
 	type("2");
 	type("1");
 	type("=======");
 	srand(time(NULL));
-		for (int a = 0; a < 5; a++)
+	for (int a = 0; a < 3; a++)
+	{
+		ans.clear();
+		for (int b = 0; b < 5; b++)
 		{
 			int num;
 			number = rand() % 9 + 0;
@@ -598,6 +601,7 @@ void patch() // zach, function for mini game inside of spacevac scenario
 			if (guess == ans)
 			{
 				cout << "Good job! " << endl;
+				Sleep(1000);
 			}
 			if (guess != ans)
 			{
@@ -606,12 +610,13 @@ void patch() // zach, function for mini game inside of spacevac scenario
 			}
 		}
 	}
+	}
 
 
 void playPatch() // easier to call patch function and make sure user is ready.
 {
 	string answer;
-	type("Are you ready to patch the hull? (y\n)");
+	type("Are you ready to patch the hull? (y/n)");
 	cin >> answer;
 	if (answer == "y")
 	{
