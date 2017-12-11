@@ -1,6 +1,7 @@
 // Terminal_Game.cpp : Defines the entry point for the console application.
-//
-
+// Authors: Zachary Hodges, Collin Bartley, and Ian Ryan
+// Date: 12/11/17
+// Description: This is the code for our text-based adventure game and framework, Terminal.
 #include "stdafx.h"
 #include "iostream"
 #include "iomanip"
