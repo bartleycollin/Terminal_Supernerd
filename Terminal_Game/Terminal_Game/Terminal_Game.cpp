@@ -569,7 +569,6 @@ bool wire()
 }
 void patch() // zach, function for mini game inside of spacevac scenario
 {
-	bool good;
 	int number;
 	string ans;
 	string guess;
@@ -636,6 +635,7 @@ bool spacevac()
 	string choice1;
 	string choice2;
 	string choice3;
+	string choice4;
 	Sleep(50);
 
 	cout << endl;
@@ -658,11 +658,60 @@ bool spacevac()
 		Sleep(250);
 		typeEvent("You run to the storage room and find some scrap metal. It isn't the same metal, but it will have to do.");
 		Sleep(250);
-		typeEvent("Once identifying the crack, you begin to seal it.");
-		playPatch();
-		Sleep(250);
+		typeEvent("Right after grabbing the materials, Commander alerts your ship that there are multiple vulnerabilities in the ships hull.");
+		typeEvent("There are 3 cracks you will have to patch.");
+		typeEvent("They are as follows, the kitchen, engine room, and hallway.");
+		typeEvent("Where will you go first?");
+		type("1 - The kitchen");
+		type("2 - The engine room");
+		type("3 - The hallway");
+		cin >> choice4;
+		if (choice4 == "1")
+		{
+			typeEvent("You quicly run to the kitchen to patch the crack.");
+			typeEvent("You see it and start to patch it.");
+			playPatch();
+			typeEvent("You patched the kitchen, then you check the hallway then engine room.");
+			Sleep(250);
+			typeEvent("After arriving at the hallway, you identify the crack and get ready to patch it.");
+			playPatch();
+			typeEvent("Patched the hallways crack, now to finish the job in the engine room.");
+			Sleep(250);
+			typeEvent("You get to the engine room, and after moving some boxes out of the way, you find the crack.");
+			playPatch();
+		}
+		if (choice4 == "2")
+		{
+			typeEvent("You quicly run to the engine room to patch the crack.");
+			Sleep(100);
+			typeEvent("You see it and start to patch it.");
+			playPatch();
+			typeEvent("Successfully patched the engine room, now to the hallway, then kitchen.");
+			Sleep(250);
+			typeEvent("After arriving in the hallway, you swiftly get to patching the crack.");
+			playPatch();
+			typeEvent("You only have a little more time till you deplete your supply, you rush to the kitchen.");
+			Sleep(250);
+			typeEvent("You waste no time patching.");
+			playPatch();
+		}
+		if (choice4 == "3")
+		{
+			typeEvent("You quicly run to the hallway to patch the crack.");
+			typeEvent("You see it and start to patch it.");
+			playPatch();
+			typeEvent("After patching the hallway you go to patch the kitchen and engine room.");
+			Sleep(250);
+			typeEvent("Upon getting to the kitchen, you start patching the crack.");
+			playPatch();
+			typeEvent("The patch was correctly applied, now onto the engine room.");
+			Sleep(250);
+			typeEvent("In the engine room, you discover the crack is larger than the others.");
+			playPatch();
+		}
+		Sleep(300);
 		typeUser("I patched it, but please, next time i'm in a life or death situation, just help.");
-		typeMoore("Did the torch and scrap metal store have any good sales?\n");
+		typeMoore("Good job, maybe you'll make it on this ship after all.\n");
 	}
 
 	else if (choice == "2") // choice 2
@@ -933,7 +982,7 @@ MADE BY Kenneth D Miller*/
 		
 		if (choice == "1")
 		{
-			randFunction();
+			spacevac();
 		}
 	}
 }
@@ -978,8 +1027,6 @@ int main()
 //	error();
 //	Sleep(2000);
 	SetConsoleTextAttribute(hConsole, 10);
-
-	test();
 
 	//Collin
 	for (int j = 0;j<75;j++) {
@@ -1026,7 +1073,7 @@ int main()
 
 		if (choice == "1")
 		{
-			randFunction();
+			spacevac();
 		}
 		if (choice == "2")
 		{

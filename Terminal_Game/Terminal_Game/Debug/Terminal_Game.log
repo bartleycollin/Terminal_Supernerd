@@ -1,10 +1,2 @@
-﻿  Terminal_Game.cpp
-c:\users\i.ryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(46): warning C4018: '<': signed/unsigned mismatch
-c:\users\i.ryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(81): warning C4018: '<': signed/unsigned mismatch
-c:\users\i.ryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(115): warning C4018: '<': signed/unsigned mismatch
-c:\users\i.ryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(149): warning C4018: '<': signed/unsigned mismatch
-c:\users\i.ryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(174): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\i.ryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(584): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\i.ryan\documents\github\terminal_supernerd\terminal_game\terminal_game\terminal_game.cpp(572): warning C4101: 'good': unreferenced local variable
-  Terminal_Game.vcxproj -> C:\Users\i.ryan\Documents\GitHub\Terminal_Supernerd\Terminal_Game\Debug\Terminal_Game.exe
-  Terminal_Game.vcxproj -> C:\Users\i.ryan\Documents\GitHub\Terminal_Supernerd\Terminal_Game\Debug\Terminal_Game.pdb (Partial PDB)
+﻿  Terminal_Game.vcxproj -> C:\Users\zhodges\Documents\GitHub\Terminal_Supernerd\Terminal_Game\Debug\Terminal_Game.exe
+  Terminal_Game.vcxproj -> C:\Users\zhodges\Documents\GitHub\Terminal_Supernerd\Terminal_Game\Debug\Terminal_Game.pdb (Full PDB)
