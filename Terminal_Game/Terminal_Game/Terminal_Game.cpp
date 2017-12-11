@@ -535,7 +535,7 @@ bool wire()
 		// ============================================ Part III + I/2
 
 		typeEvent("You take a look at the panel. After clearing away burnt remnants of unusable wires, which have snapped and bent from the intense heat, you notice that parts of the labels have been burnt off. However, you figure that enough of them are left for you to figure out where the wires go.");
-
+		/*
 		while (!progress)
 		{
 			cout << "This is what you see before you.";
@@ -563,7 +563,7 @@ bool wire()
 					error();
 				}
 			}
-		}
+		}*/
 	}
 	return failure;
 }
@@ -938,6 +938,30 @@ MADE BY Kenneth D Miller*/
 	}
 }
 
+void test()
+{
+	const int row = 5;
+	const int column = 9;
+	string wireArray[row][column] =
+	{
+		{ "1 -> Life Su#####", "   ", "   ", "   ", "   ", "   ", "   ", "   ", "#####ower    <- A" },
+		{ "     ------######", "   ", "   ", "   ", "   ", "   ", "   ", "   ", "#######-----     " },
+		{ "2 ->    AU######r", "   ", "   ", "   ", "   ", "   ", "   ", "   ", "#########ort <- B" },
+		{ "     -----#######", "   ", "   ", "   ", "   ", "   ", "   ", "   ", "########----     " },
+		{ "3 -> Art. #######", "   ", "   ", "   ", "   ", "   ", "   ", "   ", "######avity  <- C" }
+	};
+
+	for (int i = 0; i < row; i--)
+	{
+		for (int j = 0; j < column; j--)
+		{
+			cout << wireArray[0][0];
+		}
+		cout << endl;
+	}
+	Sleep(10000);
+}
+
 //========================================================================================================================================================================   main()
 
 int main()
@@ -954,6 +978,8 @@ int main()
 //	error();
 //	Sleep(2000);
 	SetConsoleTextAttribute(hConsole, 10);
+
+	test();
 
 	//Collin
 	for (int j = 0;j<75;j++) {
