@@ -46,7 +46,7 @@ void type(string str)
 	Sleep(500);
 	for (int i = 0; i < str.length(); i++)
 	{
-		randomNum = (rand() % 56) + 15;
+		randomNum = (rand() % 86) + 15;
 		c++;
 		if (newl && str[i] == ' ')
 		{
